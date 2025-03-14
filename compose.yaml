@@ -1,0 +1,6 @@
+﻿services:
+  taskflowapp:
+    image: taskflowapp
+    build:
+      context: .
+      dockerfile: TaskFlowApp/Dockerfile

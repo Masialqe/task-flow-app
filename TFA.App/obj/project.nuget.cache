@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ounITGjlcVw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jzasa\\RiderProjects\\Learning_projects\\CustomIdentity\\TFA\\TFA.App\\TFA.App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jzasa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.1\\microsoft.aspnetcore.openapi.9.0.1.nupkg.sha512",
+    "C:\\Users\\jzasa\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

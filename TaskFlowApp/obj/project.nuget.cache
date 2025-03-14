@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JqNK9y/oGaM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jzasa\\RiderProjects\\Learning_projects\\CustomIdentity\\TFA\\TaskFlowApp\\TaskFlowApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jzasa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.1\\microsoft.aspnetcore.openapi.9.0.1.nupkg.sha512",
+    "C:\\Users\\jzasa\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
