@@ -1,6 +1,54 @@
 ﻿services:
-  taskflowapp:
-    image: taskflowapp
-    build:
-      context: .
-      dockerfile: TaskFlowApp/Dockerfile
+#  tf-app:
+#    image: taskflowapp
+#    container_name: tf-app
+#    build:
+#      context: .
+#      dockerfile: TFA.App/Dockerfile
+#    environment:
+#      - SEQ-URL = https://tfa-seq:5341
+#      - DATABASE-HOST = tfa-database
+#      - DATABASE-PORT = 5432
+#      - DATABASE-NAME = tfp-database
+#      - DATABASE-USER = ${DATABASE_USERNAME}
+#      - DATABASE-PASSWORD = ${DATABASE_PASSWORD}
+#    networks:
+#      - tfa-network
+#    depends_on:
+#      - tfa-database
+      
+  tfa-seq:
+    image: datalust/seq:latest
+    container_name: tfp-seq
+    ports:
+      - "5341:5341"
+      - "8082:80"
+    environment:
+      - ACCEPT_EULA=Y
+    volumes:
+      - tfa-seq-data:/data
+    networks:
+      - tfa-network
+
+  tfa-database:
+    image: postgres:latest
+    container_name: tfa-database
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: tfp-database
+    ports:
+      - "5432:5432"
+    networks:
+      - tfa-network
+    volumes:
+      - tfa-postgres-data:/var/lib/postgresql/data
+        
+        
+networks:
+  tfa-network:
+    driver: bridge
+
+volumes:
+  tfa-postgres-data:
+  tfa-seq-data:
