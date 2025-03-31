@@ -35,7 +35,6 @@ To install and run the application, follow these steps:
 1. Clone the repository:
    ```sh
    git clone https://github.com/Masialqe/task-flow-app.git
-   cd tfa
    ```
 2. Create a `.env` file in the root directory and populate it with necessary values (see **Environment Variables** section below).
 3. Run the application using Docker Compose:
