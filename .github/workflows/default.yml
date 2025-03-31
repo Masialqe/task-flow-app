@@ -26,4 +26,5 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Run unit tests
-        run: dotnet test --no-build --configuration Release --logger trx --results-direct
+        run: dotnet test --no-build --configuration Release --logger trx --results-directory "TestResults"
+
