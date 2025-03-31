@@ -167,3 +167,6 @@ C:\Users\jzasa\RiderProjects\Learning_projects\CustomIdentity\TFA\TFA.App\obj\De
 C:\Users\jzasa\RiderProjects\Learning_projects\CustomIdentity\TFA\TFA.App\obj\Debug\net9.0\TFA.App.pdb
 C:\Users\jzasa\RiderProjects\Learning_projects\CustomIdentity\TFA\TFA.App\obj\Debug\net9.0\TFA.App.genruntimeconfig.cache
 C:\Users\jzasa\RiderProjects\Learning_projects\CustomIdentity\TFA\TFA.App\obj\Debug\net9.0\ref\TFA.App.dll
+C:\Users\jzasa\RiderProjects\Learning_projects\CustomIdentity\TFA\TFA.App\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\jzasa\RiderProjects\Learning_projects\CustomIdentity\TFA\TFA.App\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\jzasa\RiderProjects\Learning_projects\CustomIdentity\TFA\TFA.App\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll

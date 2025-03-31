@@ -156,6 +156,35 @@ namespace TFA.App.Migrations.IdentityData
 
             modelBuilder.Entity("TFA.App.Domain.Models.Users.User", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("UserFirstName");
+
+                    b.Property<string>("IdentityId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("UserLastName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
+            modelBuilder.Entity("TFA.App.Domain.Models.Users.UserIdentity", b =>
+                {
                     b.Property<string>("Id")
                         .HasColumnType("text");
 
@@ -237,7 +266,7 @@ namespace TFA.App.Migrations.IdentityData
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("TFA.App.Domain.Models.Users.User", null)
+                    b.HasOne("TFA.App.Domain.Models.Users.UserIdentity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -246,7 +275,7 @@ namespace TFA.App.Migrations.IdentityData
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("TFA.App.Domain.Models.Users.User", null)
+                    b.HasOne("TFA.App.Domain.Models.Users.UserIdentity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -261,7 +290,7 @@ namespace TFA.App.Migrations.IdentityData
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TFA.App.Domain.Models.Users.User", null)
+                    b.HasOne("TFA.App.Domain.Models.Users.UserIdentity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -270,7 +299,7 @@ namespace TFA.App.Migrations.IdentityData
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("TFA.App.Domain.Models.Users.User", null)
+                    b.HasOne("TFA.App.Domain.Models.Users.UserIdentity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
