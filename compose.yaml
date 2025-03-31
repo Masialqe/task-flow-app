@@ -12,6 +12,9 @@
 #      - DATABASE-NAME = tfp-database
 #      - DATABASE-USER = ${DATABASE_USERNAME}
 #      - DATABASE-PASSWORD = ${DATABASE_PASSWORD}
+#    ports:
+#      - "8443:5001"
+#      - "8080:8080"
 #    networks:
 #      - tfa-network
 #    depends_on:
@@ -43,8 +46,21 @@
       - tfa-network
     volumes:
       - tfa-postgres-data:/var/lib/postgresql/data
-        
-        
+  
+  tfa-pgadmin:
+    image: dpage/pgadmin4
+    container_name: tfa-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    networks:
+      - tfa-network
+    ports:
+      - "8083:80"
+    depends_on:
+      - tfa-database
+
+           
 networks:
   tfa-network:
     driver: bridge

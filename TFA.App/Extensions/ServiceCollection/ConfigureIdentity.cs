@@ -10,18 +10,18 @@ public static class ConfigureIdentity
     public static IServiceCollection ConfigureMsIdentity(this IServiceCollection services)
     {
         services.AddAuthorization();
-        services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
+        services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme, options =>
+        {
+            //options.LoginPath = "/users/login";
+            //options.Cookie.HttpOnly = true;
+            //options.Cookie.SameSite = SameSiteMode.Strict;
+            //options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        });
 
-        // services.ConfigureApplicationCookie(options =>
-        // {
-        //     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-        //     options.Cookie.HttpOnly = true;
-        //     options.Cookie.SameSite = SameSiteMode.Strict;
-        // });
-
-        services.AddIdentityCore<User>()
-            .AddEntityFrameworkStores<IdentityDataContext>()
-            .AddApiEndpoints();
+        services.AddIdentityCore<UserIdentity>()
+            .AddSignInManager<SignInManager<UserIdentity>>()
+            .AddEntityFrameworkStores<IdentityDataContext>();
+        
         return services;
     }
 }
