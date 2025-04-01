@@ -1,6 +1,6 @@
 ﻿using TFA.App.Domain.Abstractions;
 
-namespace TFA.App.API.Responses;
+namespace TFA.App.API.Responses.Global;
 
 public class ApiResponse
 {

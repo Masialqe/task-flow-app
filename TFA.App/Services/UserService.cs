@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TFA.App.Database.Context;
-using TFA.App.Domain.Abstractions;
 using TFA.App.Domain.Models.Users;
 using TFA.App.Services.Abstractions;
 
@@ -26,7 +25,7 @@ public class UserService(ApplicationDataContext context) : IUserService
     /// <returns> User object if exists. </returns>
     public async Task<User?> FindUser(string requestUserId, 
         CancellationToken cancellationToken = default)
-        => await context.Users.FirstOrDefaultAsync(x 
+        => await context.Users.AsNoTracking().FirstOrDefaultAsync(x 
             => x.Id == Guid.Parse(requestUserId), cancellationToken);
     
     /// <summary>
@@ -37,7 +36,7 @@ public class UserService(ApplicationDataContext context) : IUserService
     /// <returns> User object if exists.</returns>
     public async Task<User?> FindUserByIdentity(string requestIdentityId, 
         CancellationToken cancellationToken = default)
-        => await context.Users.FirstOrDefaultAsync(x => x.IdentityId == requestIdentityId, cancellationToken);
+        => await context.Users.AsNoTracking().FirstOrDefaultAsync(x => x.IdentityId == requestIdentityId, cancellationToken);
     
     public async Task<bool> IsUserAlreadyRegistered(string userEmail,
         CancellationToken cancellationToken = default)

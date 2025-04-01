@@ -1,4 +1,5 @@
 ﻿using TFA.App.API.Responses;
+using TFA.App.API.Responses.Global;
 using TFA.App.Domain.Abstractions;
 
 namespace TFA.App.API.Endpoints.Results;

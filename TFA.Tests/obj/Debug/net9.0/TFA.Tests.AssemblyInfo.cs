@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TFA.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4084101f81097f81b90652d378a6e6a1df9a949")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6930eacfa27727f4bf04811c4bbf13b428f20307")]
 [assembly: System.Reflection.AssemblyProductAttribute("TFA.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TFA.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
