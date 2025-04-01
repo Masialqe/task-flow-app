@@ -1,18 +1,16 @@
-﻿using System.Security.Claims;
-using FluentValidation;
-using MediatR;
+﻿using TFA.App.API.Endpoints.Configuration;
+using TFA.App.Domain.Models.Projects;
+using TFA.App.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using TFA.App.API.Endpoints;
-using TFA.App.API.Endpoints.Configuration;
 using TFA.App.API.Endpoints.Filters;
 using TFA.App.API.Endpoints.Results;
-using TFA.App.Database.Context;
 using TFA.App.Domain.Abstractions;
-using TFA.App.Domain.Models;
-using TFA.App.Domain.Models.Projects;
 using TFA.App.Domain.Models.Users;
 using TFA.App.Extensions.Common;
-using TFA.App.Services.Abstractions;
+using TFA.App.Database.Context;
+using System.Security.Claims;
+using TFA.App.Domain.Models;
+using MediatR;
 
 namespace TFA.App.API.V1.Projects.CreateProject;
 
@@ -23,15 +21,6 @@ public static class CreateProject
 
     public sealed class Endpoint : IEndpoint
     {
-        public sealed class Validator : AbstractValidator<CreateProjectRequest>
-        {
-            public Validator()
-            {
-                RuleFor(x => x.Name).NotEmpty().MaximumLength(100);
-                RuleFor(x => x.Description).NotEmpty().MaximumLength(500);
-            }
-        }
-        
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
             app.MapPost("projects", async (CreateProjectRequest request, 
@@ -76,8 +65,7 @@ public static class CreateProject
         {
             return await context.Projects
                 .AnyAsync(x => x.Name.ToLower() == requestName.ToLower() && 
-                               x.OwnerId == requestUserId, 
-                    cancellationToken);
+                               x.OwnerId == requestUserId, cancellationToken);
         }
     }
 }
